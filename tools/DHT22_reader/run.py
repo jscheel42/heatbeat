@@ -2,12 +2,15 @@ import shared_vars as sv
 import psycopg2 as pg
 
 # Import sensor library and read 
-# import Adafruit_DHT as dht
-# h,t = dht.read_retry(dht.DHT22, 4)
+import Adafruit_DHT as dht
+h,t_c = dht.read_retry(dht.DHT22, 4)
 
 # Sample data for testing w/o sensor
-h = 42.4231
-t = 50.12345
+# h = 42.4231
+# t_c = 50.12345
+
+# Convert to fahrenheit
+t_f = (t_c * 1.8) + 32
 
 # Connect to the DB
 try:
@@ -16,9 +19,9 @@ try:
 except:
     print "I am unable to connect to the database."
 
-cur.execute("INSERT INTO public.sensor_info \
+cur.execute("INSERT INTO public.sensors \
     (humidity, temperature, inserted_at, updated_at) VALUES (%s, %s, %s, %s)", \
-    (h, t, "now()", "now()"))
+    (h, t_f, "now()", "now()"))
 
 # Commit transaction and close connections
 conn.commit()

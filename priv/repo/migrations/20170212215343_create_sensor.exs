@@ -1,14 +1,15 @@
-defmodule Heatbeat.Repo.Migrations.CreateSensorInfo do
+defmodule Heatbeat.Repo.Migrations.CreateSensor do
   use Ecto.Migration
 
   def change do
-    create table(:sensor_info) do
+    create table(:sensors) do
       add :humidity, :real
       add :temperature, :real
+
       timestamps
     end
     
-    create unique_index(:sensor_info, [:id])
+    create unique_index(:sensors, [:id])
 
   end
 end

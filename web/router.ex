@@ -16,7 +16,9 @@ defmodule Heatbeat.Router do
   scope "/", Heatbeat do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", SensorController, :index
+    # get "/", PageController, :index
+    # resources "/sensors", SensorController
   end
 
   # Other scopes may use custom stacks.

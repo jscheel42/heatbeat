@@ -1,0 +1,23 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :temperature, class: "control-label" %>
+    <%= number_input f, :temperature, step: "any", class: "form-control" %>
+    <%= error_tag f, :temperature %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :humidity, class: "control-label" %>
+    <%= number_input f, :humidity, step: "any", class: "form-control" %>
+    <%= error_tag f, :humidity %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
