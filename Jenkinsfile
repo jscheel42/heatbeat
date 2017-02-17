@@ -23,6 +23,8 @@ node {
    stage('Deploy') {
        sh './ci_vars.sh docker-compose-ci.yml'
        sh 'scp docker-compose-ci.yml heatbeat@joshuascheel.com:~/app/docker-compose.yml'
+       sh 'ssh heatbeat@joshuascheel.com \'docker-compose -f app/docker-compose.yml down\''
+       sh 'ssh heatbeat@joshuascheel.com \'docker-compose -f app/docker-compose.yml pull\''
        sh 'ssh heatbeat@joshuascheel.com \'docker-compose -f app/docker-compose.yml up -d\''
    }
 }
