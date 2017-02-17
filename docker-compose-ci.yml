@@ -2,6 +2,7 @@ version: '2'
 services:
   heatbeat:
     image: jscheel42/heatbeat
+    command: foreground
     ports:
       - "4000:4000"
     environment:
