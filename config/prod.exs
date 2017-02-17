@@ -13,8 +13,23 @@ use Mix.Config
 # which you typically run after static files are built.
 config :heatbeat, Heatbeat.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [host: "${HOST}", port: {:system, "PORT"}],
+  cache_static_manifest: "priv/static/manifest.json",
+  secret_key_base: "${SECRET_KEY_BASE}",
+  server: true,
+  root: ".",
+  version: Mix.Project.config[:version]
+  
+config :heatbeat, Heatbeat.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  hostname: "${DB_HOST}",
+  port: "${DB_PORT}",
+  database: "${DB_NAME}",
+  username: "${DB_USER}",
+  password: "${DB_PASS}",
+  pool_size: 20
+
+
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -62,4 +77,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"

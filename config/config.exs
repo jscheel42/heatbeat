@@ -29,3 +29,5 @@ config :phoenix, :generators,
   binary_id: false
 
 config :heatbeat, ecto_repos: [Heatbeat.Repo]
+
+config :mix_docker, image: "jscheel42/heatbeat"

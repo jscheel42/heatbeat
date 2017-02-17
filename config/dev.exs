@@ -39,4 +39,5 @@ config :heatbeat, Heatbeat.Repo,
   password: "localauthnopass",
   database: "heatbeat_dev",
   hostname: "localhost",
+  port: 5432,
   pool_size: 10

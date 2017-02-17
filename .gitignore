@@ -26,3 +26,6 @@ erl_crash.dump
 # Shared vars w/ db creds for dht22 python tool
 /tools/DHT22_reader/shared_vars.py
 /tools/DHT22_reader/shared_vars.pyc
+
+# Generated during mix docker.build
+heatbeat.tar.gz

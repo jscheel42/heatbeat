@@ -5,8 +5,7 @@ defmodule Heatbeat.Repo.Migrations.CreateSensor do
     create table(:sensors) do
       add :humidity, :real
       add :temperature, :real
-
-      timestamps
+      timestamps(updated_at: false)
     end
     
     create unique_index(:sensors, [:id])

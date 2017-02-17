@@ -19,7 +19,7 @@ defmodule Heatbeat.Mixfile do
   def application do
     [mod: {Heatbeat, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :timex]]
+                    :phoenix_ecto, :postgrex]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,7 @@ defmodule Heatbeat.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:timex, "~> 3.0"}]
+     {:mix_docker, "~> 0.3"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

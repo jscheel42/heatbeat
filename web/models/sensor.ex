@@ -4,8 +4,7 @@ defmodule Heatbeat.Sensor do
   schema "sensors" do
     field :temperature, :float
     field :humidity, :float
-
-    timestamps
+    timestamps(updated_at: false)
   end
 
   @required_fields ~w(temperature humidity)

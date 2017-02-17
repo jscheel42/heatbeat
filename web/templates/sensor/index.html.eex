@@ -11,7 +11,7 @@
   <tbody>
 <%= for sensor <- @recent_sensors do %>
     <tr>
-      <td><%= sensor.inserted_at |> Timex.Format.DateTime.Formatters.Default.format!("{YYYY}-{M}-{D} {h24}:{m}") %></td>
+      <td><%= sensor.inserted_at |> Map.update!(:microsecond, &(&1 = {0,0})) %></td>
       <td><%= sensor.temperature |> Float.round(2) %>&#176;F</td>
       <td><%= sensor.humidity |> Float.round(2) %>%</td>
     </tr>
