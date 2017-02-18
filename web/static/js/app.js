@@ -42,9 +42,9 @@ var humData = []
 
 for(var i = 0; i < times.length; i++)
 {
-   timeData.push(times.item(i).textContent);
-   tempData.push(temps.item(i).textContent);
-   humData.push(hums.item(i).textContent);
+   timeData.unshift(times.item(i).textContent);
+   tempData.unshift(temps.item(i).textContent);
+   humData.unshift(hums.item(i).textContent);
 }
 
 // console.log(timeData);
