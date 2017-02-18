@@ -1,19 +1,20 @@
-<h2>Listing sensors</h2>
-
+<canvas id="tempChart" height="150"></canvas>
+<canvas id="humChart" height="150"></canvas>
+<%= pagination_links @page %>
 <table class="table">
   <thead>
     <tr>
-      <th>Time</th>
-      <th>Temperature</th>
-      <th>Humidity</th>
+      <th>Time (PST)</th>
+      <th>Temperature (&#176;F)</th>
+      <th>Humidity (%)</th>
     </tr>
   </thead>
   <tbody>
-<%= for sensor <- @recent_sensors do %>
+<%= for sensor <- @sensors do %>
     <tr>
-      <td><%= sensor.inserted_at |> Map.update!(:microsecond, &(&1 = {0,0})) %></td>
-      <td><%= sensor.temperature |> Float.round(2) %>&#176;F</td>
-      <td><%= sensor.humidity |> Float.round(2) %>%</td>
+      <td class="timedata"><%= sensor.inserted_at |> Map.update!(:microsecond, &(&1 = {0,0})) |> to_string |> String.slice(0..-4) %></td>
+      <td class="tempdata"><%= sensor.temperature |> Float.round(2) %></td>
+      <td class="humdata"><%= sensor.humidity |> Float.round(2) %></td>
     </tr>
 <% end %>
   </tbody>

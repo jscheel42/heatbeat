@@ -21,9 +21,14 @@ defmodule Heatbeat.Sensor do
     |> cast(params, @required_fields, @optional_fields)
   end
   
-  def recent(query) do
+  def all_desc(query) do
     from s in query,
-      order_by: [desc: s.inserted_at],
-      limit: 3
+      order_by: [desc: s.inserted_at]
   end
+  
+  def recent(query, limit \\ 3) do
+    from s in all_desc(query),
+      limit: ^limit
+  end
+  
 end

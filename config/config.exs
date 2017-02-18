@@ -31,3 +31,6 @@ config :phoenix, :generators,
 config :heatbeat, ecto_repos: [Heatbeat.Repo]
 
 config :mix_docker, image: "jscheel42/heatbeat"
+
+config :scrivener_html,
+  routes_helper: Heatbeat.Router.Helpers
