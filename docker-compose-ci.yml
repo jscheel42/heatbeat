@@ -1,5 +1,6 @@
 version: '2'
 services:
+  restart: always
   heatbeat:
     image: jscheel42/heatbeat
     command: foreground
