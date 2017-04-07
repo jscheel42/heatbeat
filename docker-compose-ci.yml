@@ -1,7 +1,7 @@
 version: '2'
 services:
-  restart: always
   heatbeat:
+    restart: always
     image: jscheel42/heatbeat
     command: foreground
     ports:
